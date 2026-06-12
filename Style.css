@@ -1,0 +1,172 @@
+/* ========================================== 
+   1. POLICES ET VARIABLES (Design Moderne) 
+   ========================================== */ 
+@import url('https://googleapis.com'); 
+ 
+:root { 
+    --bg-color: #0f0c1b;       /* Fond sombre violacé moderne */ 
+    --card-bg: #1d1833;        /* Fond des cartes légèrement plus clair */ 
+    --accent-color: #8a2be2;   /* Violet électrique pour les boutons */ 
+    --hover-color: #a04ef6;    /* Violet plus clair au survol */ 
+    --text-main: #ffffff;      /* Texte principal blanc */ 
+    --text-muted: #b3b3b3;     /* Texte secondaire gris */ 
+} 
+ 
+/* ========================================== 
+   2. REGLAGES GENERAUX 
+   ========================================== */ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    min-height: 100vh; 
+    padding: 40px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+ 
+/* ========================================== 
+   3. EN-TÊTE (Header) 
+   ========================================== */ 
+.main-banner { 
+    width: 100%; 
+    max-width: 600px; /* Même largeur que ta barre de recherche */ 
+    margin: 20px auto 30px auto; 
+    padding: 15px 20px; 
+    background: linear-gradient(45deg, #00f2fe, #4facfe, var(--accent-color)); 
+    border-radius: 50px; /* Arrondi pour correspondre à la barre de recherche */ 
+    text-align: center; 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
+} 
+ 
+.main-banner h1 { 
+    font-size: 1.5rem; /* Taille adaptée pour tenir à l'intérieur */ 
+    font-weight: 700; 
+    color: #ffffff; /* Texte écrit en blanc pour bien ressortir sur le dégradé */ 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+} 
+ 
+/* ========================================== 
+   4. BARRE DE RECHERCHE (Search Bar) 
+   ========================================== */ 
+.search-container { 
+    width: 100%; 
+    max-width: 600px; 
+    margin-bottom: 50px; 
+    position: relative; 
+} 
+ 
+#search-bar { 
+    width: 100%; 
+    padding: 16px 25px; 
+    font-size: 1rem; 
+    font-family: inherit; 
+    color: var(--text-main); 
+    background-color: var(--card-bg); 
+    border: 2px solid transparent; 
+    border-radius: 50px; 
+    outline: none; 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+} 
+ 
+/* Effet lumineux quand on clique sur la recherche */ 
+#search-bar:focus { 
+    border-color: var(--accent-color); 
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); 
+    background-color: #251f42; 
+} 
+ 
+#search-bar::placeholder { 
+    color: var(--text-muted); 
+} 
+ 
+/* ========================================== 
+   5. GRILLE DES CARTES DE MUSIQUE (Flexbox/Grid) 
+   ========================================== */ 
+.music-container { 
+    width: 100%; 
+    max-width: 1200px; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+    justify-content: center; 
+} 
+ 
+/* ========================================== 
+   6. LES CARTES DE MUSIQUE (Song Cards) 
+   ========================================== */ 
+.song-card { 
+    background: var(--card-bg); 
+    border-radius: 20px; 
+    padding: 25px; 
+    text-align: left; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+} 
+ 
+/* Effet de lévitation au survol de la souris */ 
+.song-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2); 
+    border-color: rgba(138, 43, 226, 0.3); 
+} 
+ 
+.song-card h3 { 
+    font-size: 1.3rem; 
+    font-weight: 600; 
+    margin-bottom: 5px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Coupe proprement si le titre est trop long */ 
+} 
+ 
+.song-card p { 
+    color: var(--text-muted); 
+    font-size: 0.95rem; 
+    margin-bottom: 20px; 
+} 
+ 
+/* Personnalisation du lecteur audio natif */ 
+audio { 
+    width: 100%; 
+    margin-top: auto; 
+    margin-bottom: 20px; 
+    border-radius: 10px; 
+} 
+ 
+/* ========================================== 
+   7. BOUTON DE TELECHARGEMENT 
+   ========================================== */ 
+.download-btn { 
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+    padding: 12px; 
+    font-weight: 600; 
+    font-size: 0.95rem; 
+    color: var(--text-main); 
+    background: linear-gradient(135deg, var(--accent-color), #6a1b9a); 
+    text-decoration: none; 
+    border-radius: 12px; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3); 
+} 
+ 
+.download-btn:hover { 
+    background: linear-gradient(135deg, var(--hover-color), var(--accent-color)); 
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5); 
+    transform: scale(1.02); 
+} 
